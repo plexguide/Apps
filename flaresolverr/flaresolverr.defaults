@@ -1,0 +1,10 @@
+#!/bin/bash
+
+##### Port Number: 8191
+##### Time Zone: America/New_York
+##### AppData Path: /pg/appdata/flaresolverr
+##### Version Tag: latest
+##### Expose:
+##### Log: info
+
+# END OF DEFAULTS
