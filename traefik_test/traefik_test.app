@@ -3,7 +3,6 @@
 deploy_container() {
 
 docker run -d \
-
     --name="${app_name}" \
     --restart=always \
     --network=host \
@@ -18,7 +17,7 @@ docker run -d \
     --certificatesresolvers.myresolver.acme.dnschallenge=true \
     --certificatesresolvers.myresolver.acme.dnschallenge.provider=cloudflare \
     --certificatesresolvers.myresolver.acme.email="${your_email}" \
-    --certificatesresolvers.myresolver.acme.storage=/acme.json
+    --certificatesresolvers.myresolver.acme.storage=/acme.json \
     traefik:v2.10 \
         
     # display app deployment information
