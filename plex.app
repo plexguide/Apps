@@ -5,6 +5,9 @@ RED="\033[0;31m"
 GREEN="\033[0;32m"
 NC="\033[0m" # No color
 
+# Path to the configuration file
+config_path="/pg/config/${app_name}.cfg"
+
 # ================================ DEFAULT VALUES ================================ #
 # NOTE: Required for the app to function properly - Requires 5 #'s for each variable
 
