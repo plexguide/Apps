@@ -22,6 +22,8 @@ NC="\033[0m" # No color
 ##### NVIDIA Driver: all
 ##### NVIDIA Visible: all
 ##### NVIDIA Graphics: all
+
+# Note: Required d to Specify the Intel GPU; example: /dev/dri/renderD128 for Tdarr to Use It
 ##### Intel GPU: /dev/dri/
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
