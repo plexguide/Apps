@@ -85,6 +85,9 @@ plex_token() {
     # Source the configuration file to get the current plex_token value
     if [[ -f "$config_path" ]]; then
         source "$config_path"
+    else
+        echo -e "${RED}Configuration file not found at $config_path.${NC}"
+        return
     fi
 
     echo "Current Token: $plex_token"
@@ -101,9 +104,13 @@ plex_token() {
             return
         elif [[ "$new_token" =~ "no-token" || "$new_token" =~ ^claim ]]; then
             plex_token="$new_token"
-            # Update the config file with the new token
-            sed -i "s|^plex_token=.*|plex_token=$plex_token|" "$config_path"
-            echo "Plex token updated successfully."
+            # Check if the config file exists before using sed
+            if [[ -f "$config_path" ]]; then
+                sed -i "s|^plex_token=.*|plex_token=$plex_token|" "$config_path"
+                echo "Plex token updated successfully."
+            else
+                echo -e "${RED}Error: Configuration file $config_path not found. Cannot update token.${NC}"
+            fi
             
             # Stop and remove the Docker container
             docker stop "$app_name"
@@ -117,8 +124,8 @@ plex_token() {
     done
 }
 
-# ================================ EXTRA FUNCITONS ================================ #
-# NOTE: Extra Functions for Script Orgnaization
+# ================================ EXTRA FUNCTIONS ================================ #
+# NOTE: Extra Functions for Script Organization
 
 check_plex_token_default() {
     # Check and update the Plex token if necessary
@@ -131,9 +138,13 @@ check_plex_token_default() {
             read -p "Plex Token: " new_token
             if [[ "$new_token" == "no-token" || "$new_token" =~ ^claim ]]; then
                 plex_token="$new_token"
-                # Update the config file with the new token
-                sed -i "s|^plex_token=.*|plex_token=$plex_token|" "$config_path"
-                docker stop "$app_name" && docker rm "$app_name"  # Kill the Docker container if token changes
+                # Check if the config file exists before using sed
+                if [[ -f "$config_path" ]]; then
+                    sed -i "s|^plex_token=.*|plex_token=$plex_token|" "$config_path"
+                    docker stop "$app_name" && docker rm "$app_name"  # Kill the Docker container if token changes
+                else
+                    echo -e "${RED}Error: Configuration file $config_path not found. Cannot update token.${NC}"
+                fi
                 break
             else
                 echo "Invalid token format. Please ensure the token starts with 'claim-' or type 'no-token'."
