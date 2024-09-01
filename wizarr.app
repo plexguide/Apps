@@ -10,7 +10,7 @@
 
 deploy_container() {
 
-  # Function to create Docker Compose file
+# Function to create Docker Compose file
   create_docker_compose() {
       cat << EOF > docker-compose.yml
   version: '3.9'
