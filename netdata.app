@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## Default Variables - Required ##
+
 ##### Port Number: 19999
 ##### Time Zone: America/New_York
 ##### AppData Path: /pg/appdata/netdata

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ## Default Variables - Required ##
+
 ##### Port Number: 9117
 ##### Time Zone: America/New_York
 ##### AppData Path: /pg/appdata/jackett
