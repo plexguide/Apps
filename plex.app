@@ -30,7 +30,6 @@ deploy_container() {
 
 create_docker_compose() {
     cat << EOF > docker-compose.yml
-version: '3.9'
 services:
   ${app_name}:
     image: lscr.io/linuxserver/plex:${version_tag}

@@ -12,7 +12,6 @@
 
 deploy_container() {
 
-
 create_docker_compose() {
     cat << EOF > docker-compose.yml
 services:
