@@ -30,11 +30,4 @@ services:
 EOF
 }
 
-# Function to Deploy Docker Compose
-create_docker_compose
-docker-compose up -d
-    
-# display app deployment information
-appverify "$app_name"
-
 }
