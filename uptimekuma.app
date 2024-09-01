@@ -16,7 +16,7 @@ version: '3.9'
 services:
   ${app_name}:
     image: louislam/uptime-kuma:${version_tag}
-    container_name: uptimekuma
+    container_name: ${app_name}
     ports:
       - "${expose}${port_number}:3001"
     volumes:
