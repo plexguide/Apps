@@ -8,13 +8,6 @@ appdata_path="/pg/appdata/prowlarr"
 port_number="9696"
 expose=""
 
-# Debugging: Print all variables before using them
-echo "App Name: ${app_name}"
-echo "Version Tag: ${version_tag}"
-echo "Time Zone: ${time_zone}"
-echo "AppData Path: ${appdata_path}"
-echo "Port Number: ${port_number}"
-echo "Expose: ${expose}"
 
 deploy_container() {
 
@@ -37,16 +30,4 @@ services:
 EOF
     }
 
-    # Call the function to create docker-compose.yml
-    create_docker_compose
-
-    # Deploy using docker-compose
-    echo "Deploying ${app_name}..."
-    docker-compose up -d
-
-    if [ $? -eq 0 ]; then
-        echo "${app_name} deployed successfully."
-    else
-        echo "${app_name} failed to deploy."
-    fi
 }
