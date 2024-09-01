@@ -1,5 +1,13 @@
 #!/bin/bash
 
+## Default Variables - Required ##
+
+##### Port Number: 8444
+##### Time Zone: America/New_York
+##### AppData Path: /pg/appdata/heimdall
+##### Version Tag: latest
+##### Expose:
+
 deploy_container() {
 
 # Function to create Docker Compose file
@@ -22,7 +30,7 @@ services:
 EOF
 }
 
-
+# Function to Deploy Docker Compose
 create_docker_compose
 docker-compose up -d
     
