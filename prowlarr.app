@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Default Variables - Required ##
+
 ##### AppData Path: /pg/appdata/prowlarr
 ##### Port Number: 9696
 ##### Time Zone: America/New_York
@@ -8,8 +10,8 @@
 
 deploy_container() {
 
-    create_docker_compose() {
-        cat << EOF > docker-compose.yml
+create_docker_compose() {
+    cat << EOF > docker-compose.yml
 version: '3.9'
 services:
   ${app_name}:
@@ -25,6 +27,6 @@ services:
       - ${expose}${port_number}:9696
     restart: unless-stopped
 EOF
-    }
+}
 
 }
