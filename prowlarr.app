@@ -1,13 +1,10 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-app_name="prowlarr"
-version_tag="latest"
-time_zone="America/New_York"
-appdata_path="/pg/appdata/prowlarr"
-port_number="9696"
-expose=""
-
+##### AppData Path: /pg/appdata/prowlarr
+##### Port Number: 9696
+##### Time Zone: America/New_York
+##### Version Tag: latest
+##### Expose:
 
 deploy_container() {
 
