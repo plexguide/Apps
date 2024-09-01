@@ -15,7 +15,7 @@ create_docker_compose() {
 version: '3.9'
 services:
   ${app_name}:
-    image: lscr.io/linuxserver/heimdall:${version_tag}
+    image: lscr.io/linuxserver/prowlarr:${version_tag}
     container_name: ${app_name}
     environment:
       - PUID=1000
