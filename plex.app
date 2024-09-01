@@ -58,7 +58,6 @@ EOF
     volumes:
       - ${appdata_path}:/config
       - ${media_path}:/media
-      - realdebrid:/torrents
 EOF
 
     # Check if Intel graphics devices exist
