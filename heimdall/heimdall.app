@@ -22,14 +22,9 @@ services:
 EOF
 }
 
-# Function to deploy container
-deploy_container() {
-    create_docker_compose
-    docker-compose up -d
-}
+create_docker_compose
+docker-compose up -d
 
-deploy_container
-
-    # display app deployment information
-    appverify "$app_name"
+# display app deployment information
+appverify "$app_name"
 }
