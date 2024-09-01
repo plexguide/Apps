@@ -25,10 +25,6 @@ config_path="/pg/config/${app_name}.cfg"
 # ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
-if lspci | grep -i 'nvidia' &> /dev/null; then
-    nvidia_options="-e NVIDIA_DRIVER_CAPABILITIES=\"${nvidia_driver}\" -e NVIDIA_VISIBLE_DEVICES=\"${nvidia_visible}\" --gpus=\"${nvidia_graphics}\""; else
-    nvidia_options=""; fi
-
     # If no token exists, prompts user to create one for the claim
     check_plex_token_default
 
