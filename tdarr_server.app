@@ -38,7 +38,7 @@ deploy_container() {
 
     # Create Docker Compose YAML configuration
     create_docker_compose() {
-        cat << EOF > docker-compose.yml
+        cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
   ${app_name}:
     image: ghcr.io/haveagitgat/tdarr:${version_tag}

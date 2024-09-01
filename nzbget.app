@@ -14,7 +14,7 @@
 deploy_container() {
 
 create_docker_compose() {
-    cat << EOF > docker-compose.yml
+    cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
   ${app_name}:
     image: nzbgetcom/nzbget:${version_tag}

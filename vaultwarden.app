@@ -26,7 +26,7 @@ deploy_container() {
     check_and_update_vaultwarden_token
 
     create_docker_compose() {
-        cat << EOF > docker-compose.yml
+        cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 version: '3.9'
 services:
   ${app_name}:
