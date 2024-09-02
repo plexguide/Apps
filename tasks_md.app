@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Default Variables - Required ##
-##### AppData Path: /pg/appdata/tasksmd
+##### AppData Path: /pg/appdata/tasks_md
 ##### Port Number: 8271
 ##### Time Zone: America/New_York
 ##### Version Tag: latest
