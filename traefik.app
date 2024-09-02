@@ -8,13 +8,12 @@
 
 deploy_container() {
 
-    create_docker_compose() {
-    # Create Docker Compose YAML configuration for Traefik
-    cat << EOF > /pg/ymals/traefik/docker-compose.yml
+create_docker_compose() {
+    cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
   ${app_name}:
     image: traefik:${version_tag}
-    container_name: ${app_name}:
+    container_name: ${app_name}
     ports:
       - "80:80"           # HTTP
       - "443:443"         # HTTPS
