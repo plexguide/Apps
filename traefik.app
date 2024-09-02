@@ -6,7 +6,7 @@
 ##### Port Number: 8075
 ##### Version Tag: v3.0
 ##### Expose:
-##### Domain: change.me.com
+##### Traefik Domain: change.me.com
 
 # NOTE $ TESTING
 
@@ -35,7 +35,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.middlewares.traefik-auth.basicauth.removeheader=true"
       - "traefik.http.middlewares.traefik-auth.basicauth.users=foobar:$$2y$$05$$z2KwKI.GmZ43BbwfmPPKw.CSl3rqQ0OhzBbdom.orfsMVKGLW/Xeu" # CHANGE PASSWORD!! (user: foobar / pwd: foobar)
-      - "traefik.http.routers.traefik.rule=Host(`${domain}`)"
+      - "traefik.http.routers.traefik.rule=Host(`${traefik_domain}`)"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.tls.certresolver=tlschallenge"
       - "traefik.http.routers.traefik.entrypoints=web-secure"
@@ -56,7 +56,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.entrypoints=web-secure"
-      - "traefik.http.routers.whoami.rule=Host(`${domain}`)"
+      - "traefik.http.routers.whoami.rule=Host(`${traefik_domain}`)"
       - "traefik.http.routers.whoami.tls=true"
       - "traefik.http.routers.whoami.tls.certresolver=tlschallenge"
       - "traefik.http.routers.whoami.middlewares=secHeaders@file"
