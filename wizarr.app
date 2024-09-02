@@ -13,7 +13,6 @@ deploy_container() {
 # Function to create Docker Compose file
 create_docker_compose() {
     cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
-version: '3.9'
 services:
   ${app_name}:
     image: ghcr.io/wizarrrr/wizarr:${version_tag}
