@@ -3,7 +3,7 @@
 ## Default Variables - Required ##
 
 ##### AppData Path: /pg/appdata/portainer
-##### Port Number: 9000
+##### Port Number: 9191
 ##### Time Zone: America/New_York
 ##### Version Tag: latest
 ##### Expose:
