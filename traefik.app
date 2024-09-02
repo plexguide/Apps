@@ -21,7 +21,7 @@ services:
     volumes:
       - ${appdata_path}/traefik.toml:/etc/traefik/traefik.toml
       - /var/run/docker.sock:/var/run/docker.sock:ro
-  restart: unless-stopped
+    restart: unless-stopped
     networks:
       - plexguide
 
