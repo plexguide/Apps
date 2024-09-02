@@ -11,12 +11,9 @@
 ##### JF ServerUrl: 1.1.1.1
 ##### Version Tag: latest
 ##### Expose:
-
-# For NVIDIA Graphics Cards
 ##### NVIDIA Driver: all
 ##### NVIDIA Visible: all
 ##### NVIDIA Graphics: all
-##### Intel GPU: /dev/dri/
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
 
