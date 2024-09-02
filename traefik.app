@@ -3,7 +3,6 @@
 ## Default Variables - Required ##
 ##### AppData Path: /pg/appdata/traefik
 ##### Port Number: 8080
-##### Time Zone: America/New_York
 ##### Version Tag: v3.0
 ##### Expose:
 
@@ -13,10 +12,9 @@ deploy_container() {
     # Create Docker Compose YAML configuration for Traefik
     cat << EOF > /pg/ymals/traefik/docker-compose.yml
 services:
-  traefik:
+  ${app_name}:
     image: traefik:${version_tag}
-    container_name: traefik
-    restart: unless-stopped
+    container_name: ${app_name}:
     ports:
       - "80:80"           # HTTP
       - "443:443"         # HTTPS
@@ -24,15 +22,14 @@ services:
     volumes:
       - ${appdata_path}/traefik.toml:/etc/traefik/traefik.toml
       - /var/run/docker.sock:/var/run/docker.sock:ro
+  restart: unless-stopped
     networks:
-      - web
+      - plexguide
 
 networks:
-  web:
+  plexguide:
     external: true
 EOF
-
-    echo "Traefik Docker Compose YAML configuration created."
 }
 
 }
