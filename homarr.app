@@ -30,6 +30,8 @@ services:
       - ${icons_path}:/app/public/icons
       - ${appdata_path}:/app/data/configs
     restart: unless-stopped
+    networks:
+      - plexguide
 
 networks:
   plexguide:

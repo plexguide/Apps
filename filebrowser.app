@@ -29,6 +29,8 @@ services:
       - ${settings_json}:/config/settings.json
       - ${root_path}:/srv
     restart: unless-stopped
+    networks:
+      - plexguide
 
 networks:
   plexguide:

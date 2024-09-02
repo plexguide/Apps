@@ -21,6 +21,8 @@ services:
     volumes:
       - ${appdata_path}:/app/data
     restart: unless-stopped
+    networks:
+      - plexguide
 
 networks:
   plexguide:

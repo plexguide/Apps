@@ -25,9 +25,9 @@ NC="\033[0m" # No color
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
 
-    # Create Docker Compose YAML configuration
-    create_docker_compose() {
-        cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
+# Create Docker Compose YAML configuration
+create_docker_compose() {
+    cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
   ${app_name}:
     image: lscr.io/linuxserver/jellyfin:${version_tag}
@@ -41,14 +41,14 @@ EOF
 
     # Check if NVIDIA devices exist
     if command -v nvidia-smi &> /dev/null; then
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
       - NVIDIA_DRIVER_CAPABILITIES=${nvidia_driver}
       - NVIDIA_VISIBLE_DEVICES=${nvidia_visible}
       - NVIDIA_GRAPHICS_CAPABILITIES=${nvidia_graphics}
 EOF
-        fi
+    fi
 
-        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
+    cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     volumes:
       - ${appdata_path}:/config
       - ${tv_path}:/data/tvshows
@@ -57,13 +57,13 @@ EOF
 
     # Check if Intel graphics devices exist
     if [[ -d "/dev/dri" ]]; then
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     devices:
       - /dev/dri:/dev/dri
 EOF
-        fi
+    fi
 
-        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
+    cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     ports:
       - ${expose}${port_number}:8096
     networks:
@@ -74,6 +74,4 @@ networks:
   plexguide:
     external: true
 EOF
-}
-
 }

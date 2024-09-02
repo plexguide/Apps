@@ -25,6 +25,8 @@ services:
     ports:
       - ${expose}${port_number}:9696
     restart: unless-stopped
+    networks:
+      - plexguide
 
 networks:
   plexguide:

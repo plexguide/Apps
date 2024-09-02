@@ -29,6 +29,8 @@ services:
       - ${movies_path}:/movies
       - ${clientdownload_path}:/downloads
     restart: unless-stopped
+    networks:
+      - plexguide
 
 networks:
   plexguide:

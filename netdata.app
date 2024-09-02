@@ -37,6 +37,8 @@ services:
     security_opt:
       - apparmor=unconfined
     restart: unless-stopped
+    networks:
+      - plexguide
 
 networks:
   plexguide:

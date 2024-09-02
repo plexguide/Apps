@@ -26,8 +26,10 @@ deploy_container() {
     check_and_update_vaultwarden_token
 
     create_docker_compose() {
+        # Ensure the directory for the YAML file exists
+        mkdir -p /pg/ymals/${app_name}
+
         cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
-version: '3.9'
 services:
   ${app_name}:
     image: vaultwarden/server:${version_tag}
@@ -41,6 +43,9 @@ services:
     ports:
       - ${expose}${port_number}:80
     restart: unless-stopped
+    networks:
+      - plexguide
+
 networks:
   plexguide:
     external: true

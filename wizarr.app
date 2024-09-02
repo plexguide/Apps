@@ -27,6 +27,12 @@ services:
     volumes:
       - ${appdata_path}:/data/database
     restart: unless-stopped
+    networks:
+      - plexguide
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

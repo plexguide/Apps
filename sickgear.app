@@ -29,6 +29,8 @@ services:
     ports:
       - "${expose}${port_number}:8081"
     restart: unless-stopped
+    networks:
+      - plexguide
 
 networks:
   plexguide:

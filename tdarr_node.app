@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# ANSI color codes
-RED="\033[0;31m"
-GREEN="\033[0;32m"
-NC="\033[0m" # No color
-
 # ================================ DEFAULT VALUES ================================ #
 # NOTE: Required for the app to function properly - Requires 5 #'s for each variable
 
