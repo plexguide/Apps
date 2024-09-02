@@ -7,7 +7,7 @@
 ##### Version Tag: latest
 ##### Expose:
 ##### Local Images Cleanup Interval: 1440
-##### Title: PG TaskMD
+##### Title: TaskMD
 
 # Function to deploy the tasks.md container
 deploy_container() {
