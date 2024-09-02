@@ -6,7 +6,7 @@
 ##### Port Number: 8075
 ##### Version Tag: v3.0
 ##### Expose:
-##### Domain: null
+##### Domain: change.me.com
 
 # NOTE $ TESTING
 
@@ -62,7 +62,7 @@ services:
       - "traefik.http.routers.whoami.middlewares=secHeaders@file"
       - "traefik.http.services.whoami.loadbalancer.server.port=80" # set port the container listenes to
     networks:
-      - traefik-servicenet
+      - plexguide
 
 networks:
   plexguide:
