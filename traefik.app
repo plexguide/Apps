@@ -5,7 +5,7 @@
 ##### Port Number: 8075
 ##### Version Tag: v3.0
 ##### Expose:
-##### Traefik Domain: change.me.com
+##### Traefik Domain: null
 
 deploy_container() {
 
