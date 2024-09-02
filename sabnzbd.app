@@ -2,7 +2,7 @@
 
 ## Default Variables - Required ##
 
-##### Port Number: 9000
+##### Port Number: 8099
 ##### Time Zone: America/New_York
 ##### AppData Path: /pg/appdata/sabnzbd
 ##### Download Path: /pg/downloads/nzbget/downloads/
