@@ -36,7 +36,6 @@ services:
   ${app_name}:
     image: ghcr.io/haveagitgat/tdarr:${version_tag}
     container_name: ${app_name}
-    network_mode: bridge
     environment:
       - serverIP=${server_ip}
       - serverPort=${port_number}
