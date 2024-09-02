@@ -53,7 +53,7 @@ services:
       - "traefik.http.routers.whoami.tls=true"
       - "traefik.http.routers.whoami.tls.certresolver=tlschallenge"
       - "traefik.http.routers.whoami.middlewares=secHeaders@file"
-      - "traefik.http.services.whoami.loadbalancer.server.port=80" # set port the container listenes to
+      - "traefik.http.services.whoami.loadbalancer.server.port=80"
     networks:
       - plexguide
 
