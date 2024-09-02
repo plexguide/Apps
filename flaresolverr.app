@@ -32,5 +32,6 @@ networks:
   plexguide:
     external: true
 EOF
+}
 
 }

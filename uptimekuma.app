@@ -28,8 +28,4 @@ networks:
 EOF
 }
 
-# Verify the deployment
-docker ps --filter name=${app_name}
-echo "Logs for ${app_name}:"
-docker logs ${app_name}
 }

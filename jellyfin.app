@@ -74,10 +74,6 @@ networks:
   plexguide:
     external: true
 EOF
-    }
+}
 
-    # Generate the Docker Compose file
-    create_docker_compose
-
-    echo -e "${GREEN}${app_name} has been deployed successfully.${NC}"
 }
