@@ -17,6 +17,8 @@
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
 
+deploy_container() {
+
 # Create Docker Compose YAML configuration
 create_docker_compose() {
     cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
@@ -66,4 +68,6 @@ networks:
   plexguide:
     external: true
 EOF
+}
+
 }
