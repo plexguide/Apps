@@ -13,7 +13,11 @@
 deploy_container() {
 
 create_docker_compose() {
-    cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
+    cat << 
+networks:
+  plexguide:
+    external: true
+EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
   ${app_name}:
     image: filebrowser/filebrowser:${version_tag}
@@ -29,6 +33,10 @@ services:
       - ${settings_json}:/config/settings.json
       - ${root_path}:/srv
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

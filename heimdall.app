@@ -25,6 +25,10 @@ services:
     ports:
       - ${expose}${port_number}:80
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

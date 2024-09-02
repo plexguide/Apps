@@ -33,7 +33,10 @@ services:
       - ${appdata_path}:/config
     shm_size: ${shm_size}
     restart: unless-stopped
+    
+networks:
+  plexguide:
+    external: true
 EOF
-}
 
 }

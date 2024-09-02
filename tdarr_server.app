@@ -23,19 +23,12 @@ NC="\033[0m" # No color
 ##### NVIDIA Visible: all
 ##### NVIDIA Graphics: all
 
-# Note: Required d to Specify the Intel GPU; example: /dev/dri/renderD128 for Tdarr to Use It
+# Note: Required to Specify the Intel GPU; example: /dev/dri/renderD128 for Tdarr to Use It
 ##### Intel GPU: /dev/dri/
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
     
-    # Check for Intel GPU presence
-    if [[ -d "/dev/dri" ]]; then
-        intel_gpu_option="--device=/dev/dri:/dev/dri"
-    else
-        intel_gpu_option=""
-    fi
-
     # Create Docker Compose YAML configuration
     create_docker_compose() {
         cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
@@ -58,14 +51,14 @@ EOF
 
     # Check if NVIDIA devices exist
     if command -v nvidia-smi &> /dev/null; then
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
       - NVIDIA_DRIVER_CAPABILITIES=${nvidia_driver}
       - NVIDIA_VISIBLE_DEVICES=${nvidia_visible}
       - NVIDIA_GRAPHICS_CAPABILITIES=${nvidia_graphics}
 EOF
-        fi
+    fi
 
-        cat << EOF >> docker-compose.yml
+    cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     volumes:
       - ${appdata_path}/server:/app/server
       - ${appdata_path}/configs:/app/configs
@@ -76,13 +69,13 @@ EOF
 
     # Check if Intel graphics devices exist
     if [[ -d "/dev/dri" ]]; then
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     devices:
       - ${intel_gpu}:/dev/dri
 EOF
     fi
 
-        cat << EOF >> docker-compose.yml
+    cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     ports:
       - ${expose}${port_number}:8265
       - ${expose}${port_two}:8266
@@ -91,7 +84,17 @@ EOF
         max-size: 10m
         max-file: 5
     restart: unless-stopped
-EOF
-}
+    networks:
+      - plexguide
 
+networks:
+  plexguide:
+    external: true
+EOF
+    }
+
+    # Generate the Docker Compose file
+    create_docker_compose
+
+    echo -e "${GREEN}${app_name} has been deployed successfully.${NC}"
 }

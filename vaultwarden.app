@@ -38,19 +38,15 @@ services:
       - ADMIN_TOKEN=${admin_token}
     volumes:
       - ${appdata_path}:/data
-EOF
-
-        cat << EOF >> docker-compose.yml
     ports:
       - ${expose}${port_number}:80
     restart: unless-stopped
+networks:
+  plexguide:
+    external: true
 EOF
-    }
+}
 
-    # Generate the Docker Compose file
-    create_docker_compose
-
-    echo -e "${GREEN}${app_name} has been deployed successfully.${NC}"
 }
 
 # ================================ MENU GENERATION ================================ #
@@ -137,6 +133,3 @@ check_and_update_vaultwarden_token() {
         done
     fi
 }
-
-# Execute the container deployment
-deploy_container

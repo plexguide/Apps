@@ -10,9 +10,9 @@ NC="\033[0m" # No color
 
 ##### Port Number: 8261
 ##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/tdarr_node1
+##### AppData Path: /pg/appdata/tdarr_node
 ##### Media Path: /pg/media
-##### Transcode Cache Path: /pg/transcode/tdarr_node1
+##### Transcode Cache Path: /pg/transcode/tdarr_node
 ##### FFMPEG Version: 6
 ##### Version Tag: latest
 ##### Expose:
@@ -46,14 +46,14 @@ EOF
 
     # Check if NVIDIA devices exist
     if command -v nvidia-smi &> /dev/null; then
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
       - NVIDIA_DRIVER_CAPABILITIES=${nvidia_driver}
       - NVIDIA_VISIBLE_DEVICES=${nvidia_visible}
       - NVIDIA_GRAPHICS_CAPABILITIES=${nvidia_graphics}
 EOF
-        fi
+    fi
 
-        cat << EOF >> docker-compose.yml
+    cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     volumes:
       - ${appdata_path}/server:/app/server
       - ${appdata_path}/configs:/app/configs
@@ -64,13 +64,13 @@ EOF
 
     # Check if Intel graphics devices exist
     if [[ -d "/dev/dri" ]]; then
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     devices:
       - ${intel_gpu}:/dev/dri
 EOF
-        fi
+    fi
 
-        cat << EOF >> docker-compose.yml
+    cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     ports:
       - ${expose}${port_number}:8261
     logging:
@@ -78,6 +78,12 @@ EOF
         max-size: 10m
         max-file: 5
     restart: unless-stopped
+    networks:
+      - plexguide
+
+networks:
+  plexguide:
+    external: true
 EOF
     }
 

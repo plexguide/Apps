@@ -45,14 +45,14 @@ EOF
 
     # Check if NVIDIA devices exist
     if command -v nvidia-smi &> /dev/null; then
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
       - NVIDIA_DRIVER_CAPABILITIES=${nvidia_driver}
       - NVIDIA_VISIBLE_DEVICES=${nvidia_visible}
       - NVIDIA_GRAPHICS_CAPABILITIES=${nvidia_graphics}
 EOF
     fi
 
-    cat << EOF >> docker-compose.yml
+    cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     volumes:
       - ${appdata_path}:/config
       - ${media_path}:/media
@@ -60,14 +60,20 @@ EOF
 
     # Check if Intel graphics devices exist
     if [[ -d "/dev/dri" ]]; then
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     devices:
       - /dev/dri:/dev/dri
 EOF
     fi
 
-    cat << EOF >> docker-compose.yml
+    cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     restart: unless-stopped
+    networks:
+      - plexguide
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

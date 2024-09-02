@@ -24,21 +24,6 @@ NC="\033[0m" # No color
 ##### Intel GPU: /dev/dri/
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
-deploy_container() {
-
-    # Check for NVIDIA GPU presence and set options
-    if lspci | grep -i 'nvidia' &> /dev/null; then
-        nvidia_options="-e NVIDIA_DRIVER_CAPABILITIES=${nvidia_driver} -e NVIDIA_VISIBLE_DEVICES=${nvidia_visible} --gpus=${nvidia_graphics}"
-    else
-        nvidia_options=""
-    fi
-
-    # Check for Intel GPU presence
-    if [[ -d "/dev/dri" ]]; then
-        intel_gpu_option="--device=${intel_gpu}:/dev/dri"
-    else
-        intel_gpu_option=""
-    fi
 
     # Create Docker Compose YAML configuration
     create_docker_compose() {
@@ -63,7 +48,7 @@ EOF
 EOF
         fi
 
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     volumes:
       - ${appdata_path}:/config
       - ${tv_path}:/data/tvshows
@@ -78,10 +63,16 @@ EOF
 EOF
         fi
 
-        cat << EOF >> docker-compose.yml
+        cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     ports:
       - ${expose}${port_number}:8096
+    networks:
+      - plexguide
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
     }
 
@@ -90,6 +81,3 @@ EOF
 
     echo -e "${GREEN}${app_name} has been deployed successfully.${NC}"
 }
-
-# Execute the container deployment
-deploy_container

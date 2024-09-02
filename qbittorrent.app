@@ -32,6 +32,10 @@ services:
       - "${torrenting_port}:6881"
       - "${torrenting_port}:6881/udp"
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

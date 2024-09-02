@@ -33,6 +33,10 @@ services:
       - "${expose}${port_two}:3001"
     shm_size: ${shm_size}
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

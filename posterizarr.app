@@ -28,6 +28,10 @@ services:
       - ${appdata_path}:/config:rw
       - ${kometa_path}/assets:/assets:rw
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

@@ -31,6 +31,10 @@ services:
       - ${appdata_path}:/config
       - ${download_path}:/downloads
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

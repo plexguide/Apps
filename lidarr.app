@@ -29,6 +29,10 @@ services:
       - ${music_path}:/music
       - ${clientdownload_path}:/downloads
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 

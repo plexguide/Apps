@@ -25,6 +25,10 @@ services:
     volumes:
       - ${appdata_path}:/config
     restart: unless-stopped
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 
