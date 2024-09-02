@@ -1,5 +1,4 @@
 #!/bin/bash
-# Helping Credit: https://github.com/wollomatic/simple-traefik/blob/master/docker-compose.yaml
 
 ## Default Variables - Required ##
 ##### AppData Path: /pg/appdata/traefik
@@ -72,3 +71,4 @@ EOF
 # how to set a real password:
 # sudo apt-get install apache2-utils
 # htpasswd -Bnb username password | sed -e s/\\$/\\$\\$/g
+# Helping Credit: https://github.com/wollomatic/simple-traefik/blob/master/docker-compose.yaml
