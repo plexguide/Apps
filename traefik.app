@@ -7,9 +7,9 @@
 ##### Version Tag: v3.0
 ##### Expose:
 
-# Function to deploy Traefik using Docker Compose
-deploy_traefik() {
+deploy_container() {
 
+    create_docker_compose() {
     # Create Docker Compose YAML configuration for Traefik
     cat << EOF > /pg/ymals/traefik/docker-compose.yml
 services:
@@ -35,4 +35,4 @@ EOF
     echo "Traefik Docker Compose YAML configuration created."
 }
 
-deploy_traefik
+}
