@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ANSI color codes
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+NC="\033[0m" # No color
+
 # ================================ DEFAULT VALUES ================================ #
 # NOTE: Required for the app to function properly - Requires 5 #'s for each variable
 
@@ -30,7 +35,6 @@ services:
   ${app_name}:
     image: ghcr.io/haveagitgat/tdarr:${version_tag}
     container_name: ${app_name}
-    network_mode: bridge
     environment:
       - inContainer=true
       - ffmpegVersion=${ffmpeg_version}
