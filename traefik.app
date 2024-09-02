@@ -21,6 +21,7 @@ services:
     volumes:
       - ${appdata_path}/traefik.toml:/etc/traefik/traefik.toml
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${appdata_path}/acme.json:/acme.json
     ports:
       - "${expose}${port_number}:8080"
       - "80:80"
