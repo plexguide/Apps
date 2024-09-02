@@ -21,6 +21,15 @@ config_path="/pg/config/${app_name}.cfg"
 ##### NVIDIA Driver: all
 ##### NVIDIA Visible: all
 ##### NVIDIA Graphics: all
+##### Extra Path1: /pg/media
+##### Extra Path2: /pg/media
+##### Extra Path3: /pg/media
+##### Extra Path4: /pg/media
+##### Extra Path5: /pg/media
+##### Extra Path6: /pg/media
+##### Extra Path7: /pg/media
+##### Extra Path8: /pg/media
+##### Extra Path9: /pg/media
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
@@ -56,6 +65,15 @@ EOF
     volumes:
       - ${appdata_path}:/config
       - ${media_path}:/media
+      - ${extra_path1}:/media1
+      - ${extra_path2}:/media2
+      - ${extra_path3}:/media3
+      - ${extra_path4}:/media4
+      - ${extra_path5}:/media5
+      - ${extra_path6}:/media6
+      - ${extra_path7}:/media7
+      - ${extra_path8}:/media8
+      - ${extra_path9}:/media9
 EOF
 
     # Check if Intel graphics devices exist

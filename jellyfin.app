@@ -14,6 +14,15 @@
 ##### NVIDIA Driver: all
 ##### NVIDIA Visible: all
 ##### NVIDIA Graphics: all
+##### Extra Path1: /pg/media
+##### Extra Path2: /pg/media
+##### Extra Path3: /pg/media
+##### Extra Path4: /pg/media
+##### Extra Path5: /pg/media
+##### Extra Path6: /pg/media
+##### Extra Path7: /pg/media
+##### Extra Path8: /pg/media
+##### Extra Path9: /pg/media
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
 
@@ -47,6 +56,15 @@ EOF
       - ${appdata_path}:/config
       - ${tv_path}:/data/tvshows
       - ${movies_path}:/data/movies
+      - ${extra_path1}:/data1
+      - ${extra_path2}:/data2
+      - ${extra_path3}:/data3
+      - ${extra_path4}:/data4
+      - ${extra_path5}:/data5
+      - ${extra_path6}:/data6
+      - ${extra_path7}:/data7
+      - ${extra_path8}:/data8
+      - ${extra_path9}:/data9
 EOF
 
     # Check if Intel graphics devices exist
