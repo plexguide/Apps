@@ -22,7 +22,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TITLE="${title}"
-      - BASE_PATH=""
+      - BASE_PATH="/tasks"
       - LOCAL_IMAGES_CLEANUP_INTERVAL=${local_images_cleanup_interval}
       - TZ=${time_zone}
     ports:
