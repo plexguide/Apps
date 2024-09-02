@@ -8,12 +8,6 @@
 ##### Expose:
 ##### Traefik Domain: change.me.com
 
-# NOTE $ TESTING
-
-# how to set a real password:
-# sudo apt-get install apache2-utils
-# htpasswd -Bnb username password | sed -e s/\\$/\\$\\$/g
-
 deploy_container() {
 
 create_docker_compose() {
@@ -72,3 +66,9 @@ EOF
 }
 
 }
+
+# NOTE $ TESTING
+
+# how to set a real password:
+# sudo apt-get install apache2-utils
+# htpasswd -Bnb username password | sed -e s/\\$/\\$\\$/g
