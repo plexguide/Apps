@@ -58,9 +58,9 @@ EOF
     cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     ports:
       - ${expose}${port_number}:8096
+    restart: unless-stopped
     networks:
       - plexguide
-    restart: unless-stopped
 
 networks:
   plexguide:
