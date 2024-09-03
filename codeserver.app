@@ -13,6 +13,7 @@ HASHED_PASSWORD=                      #optional
 SUDO_PASSWORD=                        #optional
 SUDO_PASSWORD_HASH=                   #optional
 DEFAULT_WORKSPACE=/config/workspace
+PROXY_DOMAIN=code-server.my.domain
 }
 
 deploy_container() {
