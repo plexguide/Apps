@@ -28,6 +28,12 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${time_zone}
+      - PASSWORD=${password}
+      - HASHED_PASSOWRD=${hashed_passowrd}
+      - SUDO_PASSWORD=${sudo_password}
+      - SUDO_PASSWORD_HASH=${sudo_password_hash}
+      - PROXY_DOMAIN=${proxy_domain}
+      - DEFAULT_WORKSPACE=${default_workspace}
     volumes:
       - ${appdata_path}:/config
     ports:
