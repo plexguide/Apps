@@ -8,12 +8,11 @@ time_zone=America/New_York
 appdata_path=/pg/appdata/codeserver
 version_tag=latest
 expose=
-################ OPTIONAL ######################### 
-PASSWORD=
-HASHED_PASSWORD=         #optional
-SUDO_PASSWORD=           #optional
-SUDO_PASSWORD_HASH=.     #optional
-PROXY_DOMAIN=            #optional
+PASSWORD=                             #optional
+HASHED_PASSWORD=                      #optional
+SUDO_PASSWORD=                        #optional
+SUDO_PASSWORD_HASH=                   #optional
+PROXY_DOMAIN=                         #optional
 DEFAULT_WORKSPACE=/config/workspace
 }
 
