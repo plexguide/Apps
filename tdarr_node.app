@@ -81,3 +81,10 @@ EOF
 }
 
 }
+
+# ================================ MENU GENERATION ================================ #
+# NOTE: Generates Menus for the App. Requires 4 #'s' - See Wiki for Details
+
+
+# ================================ EXTRA FUNCTIONS ================================ #
+# NOTE: Extra Functions for Script Organization

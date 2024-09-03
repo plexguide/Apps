@@ -39,3 +39,10 @@ EOF
     # Function call to create the Docker Compose YAML file
     create_docker_compose
 }
+
+# ================================ MENU GENERATION ================================ #
+# NOTE: Generates Menus for the App. Requires 4 #'s' - See Wiki for Details
+
+
+# ================================ EXTRA FUNCTIONS ================================ #
+# NOTE: Extra Functions for Script Organization
