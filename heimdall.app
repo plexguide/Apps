@@ -6,7 +6,7 @@ port_number=8444
 time_zone=America/New_York
 appdata_path=/pg/appdata/heimdall
 version_tag=latest
-expose=""
+expose=
 }
 
 deploy_container() {
