@@ -9,15 +9,16 @@ NC="\033[0m" # No color
 config_path="/pg/config/${app_name}.cfg"
 
 # ================================ DEFAULT VALUES ================================ #
-# NOTE: Required for the app to function properly - Requires 5 #'s for each variable
 
-##### Port Number: 4748
-##### AppData Path: /pg/appdata/vaultwarden
-##### Signups Enabled: false
-##### WebSocket Enabled: false
-##### Admin Token: null
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=4748
+appdata_path=/pg/appdata/vaultwarden
+signups_enabled=false
+websocket_enabled=false
+admin_token=null
+version_tag=latest
+expose=
+}
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {

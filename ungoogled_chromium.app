@@ -1,15 +1,15 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 4500
-##### Port Two: 4499
-##### AppData Path: /pg/appdata/ungoogled-chromium
-##### Version Tag: latest
-##### Time Zone: Etc/UTC
-##### ChromeCLI URL: https://www.linuxserver.io/
-##### Shm Size: 1gb # Optional
-##### Expose:
+default_variables() {
+port_number=4500
+port_two=4499
+appdata_path=/pg/appdata/ungoogled-chromium
+version_tag=latest
+time_zone=Etc/UTC
+chromecli_url=https://www.linuxserver.io/
+shm_size=1gb  # Optional
+expose=
+}
 
 deploy_container() {
 

@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 3001
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/uptimekuma
-##### Version Tag: 1
-##### Expose:
+default_variables() {
+port_number=3001
+time_zone=America/New_York
+appdata_path=/pg/appdata/uptimekuma
+version_tag=1
+expose=
+}
 
 deploy_container() {
 

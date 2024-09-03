@@ -1,21 +1,20 @@
 #!/bin/bash
 
 # ================================ DEFAULT VALUES ================================ #
-# NOTE: Required for the app to function properly - Requires 5 #'s for each variable
 
-##### Port Number: 8261
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/tdarr_node
-##### Media Path: /pg/media
-##### Transcode Cache Path: /pg/transcode/tdarr_node
-##### FFMPEG Version: 6
-##### Version Tag: latest
-##### Expose:
-
-# For NVIDIA Graphics Cards
-##### NVIDIA Driver: all
-##### NVIDIA Visible: all
-##### NVIDIA Graphics: all
+default_variables() {
+port_number=8261
+time_zone=America/New_York
+appdata_path=/pg/appdata/tdarr_node
+media_path=/pg/media
+transcode_cache_path=/pg/transcode/tdarr_node
+ffmpeg_version=6
+version_tag=latest
+expose=
+nvidia_driver=all  # For NVIDIA Graphics Cards
+nvidia_visible=all
+nvidia_graphics=all
+}
 
 # Note: Required to specify the Intel GPU; example: /dev/dri/renderD128 for Tdarr to use it
 ##### Intel GPU: /dev/dri/
