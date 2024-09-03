@@ -12,7 +12,6 @@ PASSWORD=                             #optional
 HASHED_PASSWORD=                      #optional
 SUDO_PASSWORD=                        #optional
 SUDO_PASSWORD_HASH=                   #optional
-PROXY_DOMAIN=                         #optional
 DEFAULT_WORKSPACE=/config/workspace
 }
 
