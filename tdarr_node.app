@@ -11,7 +11,7 @@ transcode_cache_path=/pg/transcode/tdarr_node
 ffmpeg_version=6
 version_tag=latest
 expose=
-nvidia_driver=all  # For NVIDIA Graphics Cards
+nvidia_driver=all
 nvidia_visible=all
 nvidia_graphics=all
 }
