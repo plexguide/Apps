@@ -12,8 +12,8 @@ password=                             #optional
 hashed_passowrd=                      #optional
 sudo_password=                        #optional
 sudo_password_hash=                   #optional
-default_workspace=/config/workspace
-proxy_domain=code-server.my.domain
+default_workspace=/config/workspace   #optional
+proxy_domain=code-server.my.domain    #optional
 }
 
 deploy_container() {
