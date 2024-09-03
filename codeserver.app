@@ -37,7 +37,7 @@ services:
     volumes:
       - ${appdata_path}:/config
     ports:
-      - ${expose}${port_number}:80
+      - ${expose}${port_number}:8443
     restart: unless-stopped
     networks:
       - plexguide
