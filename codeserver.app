@@ -10,10 +10,10 @@ version_tag=latest
 expose=
 ################ OPTIONAL ######################### 
 PASSWORD=
-HASHED_PASSWORD=
-SUDO_PASSWORD=
-SUDO_PASSWORD_HASH=
-PROXY_DOMAIN=
+HASHED_PASSWORD=         #optional
+SUDO_PASSWORD=           #optional
+SUDO_PASSWORD_HASH=.     #optional
+PROXY_DOMAIN=            #optional
 DEFAULT_WORKSPACE=/config/workspace
 }
 
