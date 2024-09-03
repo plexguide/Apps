@@ -1,6 +1,6 @@
 #!/bin/bash
 
-app_variables() {
+default_variables() {
 app_name="heimdall"
 port_number="8444"
 time_zone="America/New_York"
