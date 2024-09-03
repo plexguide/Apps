@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 5055
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/overseerr
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=5055
+time_zone="America/New_York"
+appdata_path="/pg/appdata/overseerr"
+version_tag="latest"
+expose=""
+}
 
 deploy_container() {
 

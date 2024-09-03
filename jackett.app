@@ -1,14 +1,14 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 9117
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/jackett
-##### PathTo Blackhole: /pg/downloads/
-##### Auto Update: true
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=9117
+time_zone="America/New_York"
+appdata_path="/pg/appdata/jackett"
+path_to_blackhole="/pg/downloads/"
+auto_update=true
+version_tag="latest"
+expose=""
+}
 
 deploy_container() {
 

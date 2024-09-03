@@ -1,15 +1,15 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 4600
-##### Port Two: 4599
-##### AppData Path: /pg/appdata/opera
-##### Version Tag: latest
-##### Time Zone: America/New_York
-##### OperaCLI URL: https://www.linuxserver.io
-##### Shm Size: 1gb
-##### Expose:
+default_variables() {
+port_number=4600
+port_two=4599
+appdata_path="/pg/appdata/opera"
+version_tag="latest"
+time_zone="America/New_York"
+operacli_url="https://www.linuxserver.io"
+shm_size="1gb"
+expose=""
+}
 
 deploy_container() {
 

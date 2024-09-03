@@ -1,13 +1,13 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 8191
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/flaresolverr
-##### Version Tag: latest
-##### Expose:
-##### Log: info
+default_variables() {
+port_number=8191
+time_zone="America/New_York"
+appdata_path="/pg/appdata/flaresolverr"
+version_tag="latest"
+expose=""
+log="info"
+}
 
 deploy_container() {
 

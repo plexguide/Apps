@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-##### AppData Path: /pg/appdata/memos
-##### Port Number: 5230
-##### Time Zone: America/New_York
-##### Version Tag: stable
-##### Expose:
-
+default_variables() {
+appdata_path="/pg/appdata/memos"
+port_number=5230
+time_zone="America/New_York"
+version_tag="stable"
+expose=""
+}
 # Function to deploy the Memos container
 deploy_container() {
 

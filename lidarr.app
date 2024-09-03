@@ -1,14 +1,14 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 8686
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/lidarr
-##### Music Path: /pg/media/music
-##### ClientDownload Path: /pg/downloads
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=8686
+time_zone="America/New_York"
+appdata_path="/pg/appdata/lidarr"
+music_path="/pg/media/music"
+clientdownload_path="/pg/downloads"
+version_tag="latest"
+expose=""
+}
 
 deploy_container() {
 

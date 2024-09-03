@@ -1,28 +1,30 @@
 #!/bin/bash
 
 # ================================ DEFAULT VALUES ================================ #
-# NOTE: Required for the app to function properly - Requires 5 #'s for each variable
 
-##### Port Number: 8095
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/jellyfin
-##### Movies Path: /pg/media/movies
-##### TV Path: /pg/media/tv
-##### JF ServerUrl: 1.1.1.1
-##### Version Tag: latest
-##### Expose:
-##### NVIDIA Driver: all
-##### NVIDIA Visible: all
-##### NVIDIA Graphics: all
-##### Extra Path1: /pg/media
-##### Extra Path2: /pg/media
-##### Extra Path3: /pg/media
-##### Extra Path4: /pg/media
-##### Extra Path5: /pg/media
-##### Extra Path6: /pg/media
-##### Extra Path7: /pg/media
-##### Extra Path8: /pg/media
-##### Extra Path9: /pg/media
+default_variables() {
+port_number=8095
+time_zone="America/New_York"
+appdata_path="/pg/appdata/jellyfin"
+movies_path="/pg/media/movies"
+tv_path="/pg/media/tv"
+jf_serverurl="1.1.1.1"
+version_tag="latest"
+expose=""
+nvidia_driver="all"
+nvidia_visible="all"
+nvidia_graphics="all"
+extra_path1="/pg/media"
+extra_path2="/pg/media"
+extra_path3="/pg/media"
+extra_path4="/pg/media"
+extra_path5="/pg/media"
+extra_path6="/pg/media"
+extra_path7="/pg/media"
+extra_path8="/pg/media"
+extra_path9="/pg/media"
+}
+
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
 

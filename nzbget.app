@@ -1,15 +1,15 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 6789
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/nzbget
-##### Download Path: /pg/downloads/nzbget
-##### User Name: nzbget 
-##### User Password: tegbzn6789
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=6789
+time_zone="America/New_York"
+appdata_path="/pg/appdata/nzbget"
+download_path="/pg/downloads/nzbget"
+user_name="nzbget"
+user_password="tegbzn6789"
+version_tag="latest"
+expose=""
+}
 
 deploy_container() {
 

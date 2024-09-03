@@ -1,14 +1,13 @@
 #!/bin/bash
 
-## Default Variables - Required ##
+default_variables() {
+port_number=19999
+time_zone="America/New_York"
+appdata_path="/pg/appdata/netdata"
+version_tag="latest"
+expose=""
+}
 
-##### Port Number: 19999
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/netdata
-##### Version Tag: latest
-##### Expose:
-
-# Function to deploy Netdata using Docker Compose
 deploy_container() {
 
 create_docker_compose() {

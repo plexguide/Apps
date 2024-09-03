@@ -1,14 +1,14 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 7575
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/homarr/configs
-##### Data Path: /pg/appdata/homarr/data
-##### Icons Path: /pg/appdata/homarr/icons
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=7575
+time_zone="America/New_York"
+appdata_path="/pg/appdata/homarr/configs"
+data_path="/pg/appdata/homarr/data"
+icons_path="/pg/appdata/homarr/icons"
+version_tag="latest"
+expose=""
+}
 
 deploy_container() {
 

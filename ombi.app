@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 3579
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/ombi
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=3579
+time_zone="America/New_York"
+appdata_path="/pg/appdata/ombi"
+version_tag="latest"
+expose=""
+}
 
 deploy_container() {
 

@@ -1,14 +1,14 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 8089
-##### Time Zone: America/New_York
-##### File Browser: /pg/appdata/filebrowser/filebrowser.db
-##### Settings JSON: /pg/appdata/filebrowser/settings.json
-##### Root Path: /
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=8089
+time_zone="America/New_York"
+file_browser="/pg/appdata/filebrowser/filebrowser.db"
+settings_json="/pg/appdata/filebrowser/settings.json"
+root_path="/"
+version_tag="latest"
+expose=""
+}
 
 deploy_container() {
 

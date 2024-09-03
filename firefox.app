@@ -1,15 +1,15 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 4700
-##### Port Two: 4699
-##### AppData Path: /pg/appdata/firefox
-##### Version Tag: latest
-##### Time Zone: America/New_York
-##### FirefoxCLI URL: https://www.linuxserver.io
-##### Shm Size: 1gb
-##### Expose:
+default_variables() {
+port_number=4700
+port_two=4699
+appdata_path="/pg/appdata/firefox"
+version_tag="latest"
+time_zone="America/New_York"
+firefoxcli_url="https://www.linuxserver.io"
+shm_size="1gb"
+expose=""
+}
 
 deploy_container() {
 

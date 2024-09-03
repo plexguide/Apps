@@ -1,11 +1,13 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-##### AppData Path: /pg/appdata/grist
-##### Port Number: 8484
-##### Time Zone: America/New_York
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+app_name="grist"
+port_number=8484
+time_zone="America/New_York"
+appdata_path="/pg/appdata/grist"
+version_tag="latest"
+expose=""
+}
 
 # Function to deploy the Grist container
 deploy_container() {
