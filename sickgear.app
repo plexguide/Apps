@@ -1,14 +1,14 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 8081
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/sickgear
-##### TV Path: /pg/media/tv
-##### Download Path: /pg/downloads
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=8081
+time_zone=America/New_York
+appdata_path=/pg/appdata/sickgear
+tv_path=/pg/media/tv
+download_path=/pg/downloads
+version_tag=latest
+expose=
+}
 
 deploy_container() {
 

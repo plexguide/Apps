@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### AppData Path: /pg/appdata/posterizarr
-##### Kometa Path: /pg/appdata/kometa
-##### Time Zone: America/New_York
-##### Version Tag: latest
-##### RunTime: 10:30,19:30
+default_variables() {
+appdata_path=/pg/appdata/posterizarr
+kometa_path=/pg/appdata/kometa
+time_zone=America/New_York
+version_tag=latest
+runtime=10:30,19:30
+}
 
 deploy_container() {
 

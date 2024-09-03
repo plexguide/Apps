@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### AppData Path: /pg/appdata/prowlarr
-##### Port Number: 9696
-##### Time Zone: America/New_York
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+appdata_path=/pg/appdata/prowlarr
+port_number=9696
+time_zone=America/New_York
+version_tag=latest
+expose=
+}
 
 deploy_container() {
 

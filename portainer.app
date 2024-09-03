@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### AppData Path: /pg/appdata/portainer
-##### Port Number: 9191
-##### Time Zone: America/New_York
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+appdata_path=/pg/appdata/portainer
+port_number=9191
+time_zone=America/New_York
+version_tag=latest
+expose=
+}
 
 deploy_container() {
 

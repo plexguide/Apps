@@ -1,14 +1,14 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 8080
-##### Torrenting Port: 6881
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/qbittorrent
-##### Download Path: /pg/downloads/qbittorrent
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=8080
+torrenting_port=6881
+time_zone=America/New_York
+appdata_path=/pg/appdata/qbittorrent
+download_path=/pg/downloads/qbittorrent
+version_tag=latest
+expose=
+}
 
 deploy_container() {
 

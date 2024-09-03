@@ -1,12 +1,12 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 8181
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/tautulli
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=8181
+time_zone=America/New_York
+appdata_path=/pg/appdata/tautulli
+version_tag=latest
+expose=
+}
 
 deploy_container() {
 

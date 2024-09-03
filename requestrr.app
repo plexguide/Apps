@@ -1,13 +1,13 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-##### Port Number: 4545
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/requestrr
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=4545
+time_zone=America/New_York
+appdata_path=/pg/appdata/requestrr
+version_tag=latest
+expose=
+}
 
-# Function to deploy Requestrr using Docker Compose
 deploy_container() {
 
 create_docker_compose() {

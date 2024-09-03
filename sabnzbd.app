@@ -1,14 +1,14 @@
 #!/bin/bash
 
-## Default Variables - Required ##
-
-##### Port Number: 8099
-##### Time Zone: America/New_York
-##### AppData Path: /pg/appdata/sabnzbd
-##### Download Path: /pg/downloads/nzbget/downloads/
-##### Incomplete Downloads: /pg/downloads/nzbget/incomplete_downloads
-##### Version Tag: latest
-##### Expose:
+default_variables() {
+port_number=8099
+time_zone=America/New_York
+appdata_path=/pg/appdata/sabnzbd
+download_path=/pg/downloads/nzbget/downloads/
+incomplete_downloads=/pg/downloads/nzbget/incomplete_downloads
+version_tag=latest
+expose=
+}
 
 deploy_container() {
 
