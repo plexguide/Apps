@@ -8,12 +8,12 @@ time_zone=America/New_York
 appdata_path=/pg/appdata/codeserver
 version_tag=latest
 expose=
-PASSWORD=                             #optional
-HASHED_PASSWORD=                      #optional
-SUDO_PASSWORD=                        #optional
-SUDO_PASSWORD_HASH=                   #optional
-DEFAULT_WORKSPACE=/config/workspace
-PROXY_DOMAIN=code-server.my.domain
+password=                             #optional
+hashed_passowrd=                      #optional
+sudo_password=                        #optional
+sudo_password_hash=                   #optional
+default_workspace=/config/workspace
+proxy_domain=code-server.my.domain
 }
 
 deploy_container() {
