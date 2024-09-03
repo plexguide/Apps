@@ -2,11 +2,11 @@
 
 default_variables() {
 port_number=8191
-time_zone="America/New_York"
-appdata_path="/pg/appdata/flaresolverr"
-version_tag="latest"
-expose=""
-log="info"
+time_zone=America/New_York
+appdata_path=/pg/appdata/flaresolverr
+version_tag=latest
+expose=
+log=info
 }
 
 deploy_container() {

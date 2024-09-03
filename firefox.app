@@ -3,12 +3,12 @@
 default_variables() {
 port_number=4700
 port_two=4699
-appdata_path="/pg/appdata/firefox"
-version_tag="latest"
-time_zone="America/New_York"
-firefoxcli_url="https://www.linuxserver.io"
-shm_size="1gb"
-expose=""
+appdata_path=/pg/appdata/firefox
+version_tag=latest
+time_zone=America/New_York
+firefoxcli_url=https://www.linuxserver.io
+shm_size=1gb
+expose=
 }
 
 deploy_container() {

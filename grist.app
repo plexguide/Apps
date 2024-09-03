@@ -1,12 +1,12 @@
 #!/bin/bash
 
 default_variables() {
-app_name="grist"
+app_name=grist
 port_number=8484
-time_zone="America/New_York"
-appdata_path="/pg/appdata/grist"
-version_tag="latest"
-expose=""
+time_zone=America/New_York
+appdata_path=/pg/appdata/grist
+version_tag=latest
+expose=
 }
 
 # Function to deploy the Grist container

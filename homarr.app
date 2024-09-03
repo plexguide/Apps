@@ -2,12 +2,12 @@
 
 default_variables() {
 port_number=7575
-time_zone="America/New_York"
-appdata_path="/pg/appdata/homarr/configs"
-data_path="/pg/appdata/homarr/data"
-icons_path="/pg/appdata/homarr/icons"
-version_tag="latest"
-expose=""
+time_zone=America/New_York
+appdata_path=/pg/appdata/homarr/configs
+data_path=/pg/appdata/homarr/data
+icons_path=/pg/appdata/homarr/icons
+version_tag=latest
+expose=
 }
 
 deploy_container() {

@@ -2,12 +2,12 @@
 
 default_variables() {
 port_number=9117
-time_zone="America/New_York"
-appdata_path="/pg/appdata/jackett"
-path_to_blackhole="/pg/downloads/"
+time_zone=America/New_York
+appdata_path=/pg/appdata/jackett
+pathto_blackhole=/pg/downloads/
 auto_update=true
-version_tag="latest"
-expose=""
+version_tag=latest
+expose=
 }
 
 deploy_container() {

@@ -2,10 +2,10 @@
 
 default_variables() {
 port_number=19999
-time_zone="America/New_York"
-appdata_path="/pg/appdata/netdata"
-version_tag="latest"
-expose=""
+time_zone=America/New_York
+appdata_path=/pg/appdata/netdata
+version_tag=latest
+expose=
 }
 
 deploy_container() {

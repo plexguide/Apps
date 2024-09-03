@@ -2,13 +2,13 @@
 
 default_variables() {
 port_number=6789
-time_zone="America/New_York"
-appdata_path="/pg/appdata/nzbget"
-download_path="/pg/downloads/nzbget"
-user_name="nzbget"
-user_password="tegbzn6789"
-version_tag="latest"
-expose=""
+time_zone=America/New_York
+appdata_path=/pg/appdata/nzbget
+download_path=/pg/downloads/nzbget
+user_name=nzbget
+user_password=tegbzn6789
+version_tag=latest
+expose=
 }
 
 deploy_container() {

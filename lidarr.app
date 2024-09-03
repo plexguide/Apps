@@ -2,12 +2,12 @@
 
 default_variables() {
 port_number=8686
-time_zone="America/New_York"
-appdata_path="/pg/appdata/lidarr"
-music_path="/pg/media/music"
-clientdownload_path="/pg/downloads"
-version_tag="latest"
-expose=""
+time_zone=America/New_York
+appdata_path=/pg/appdata/lidarr
+music_path=/pg/media/music
+clientdownload_path=/pg/downloads
+version_tag=latest
+expose=
 }
 
 deploy_container() {

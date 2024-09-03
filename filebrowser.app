@@ -2,12 +2,12 @@
 
 default_variables() {
 port_number=8089
-time_zone="America/New_York"
-file_browser="/pg/appdata/filebrowser/filebrowser.db"
-settings_json="/pg/appdata/filebrowser/settings.json"
-root_path="/"
-version_tag="latest"
-expose=""
+time_zone=America/New_York
+file_browser=/pg/appdata/filebrowser/filebrowser.db
+settings_json=/pg/appdata/filebrowser/settings.json
+root_path=/
+version_tag=latest
+expose=
 }
 
 deploy_container() {

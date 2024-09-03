@@ -4,25 +4,25 @@
 
 default_variables() {
 port_number=8095
-time_zone="America/New_York"
-appdata_path="/pg/appdata/jellyfin"
-movies_path="/pg/media/movies"
-tv_path="/pg/media/tv"
-jf_serverurl="1.1.1.1"
-version_tag="latest"
-expose=""
-nvidia_driver="all"
-nvidia_visible="all"
-nvidia_graphics="all"
-extra_path1="/pg/media"
-extra_path2="/pg/media"
-extra_path3="/pg/media"
-extra_path4="/pg/media"
-extra_path5="/pg/media"
-extra_path6="/pg/media"
-extra_path7="/pg/media"
-extra_path8="/pg/media"
-extra_path9="/pg/media"
+time_zone=America/New_York
+appdata_path=/pg/appdata/jellyfin
+movies_path=/pg/media/movies
+tv_path=/pg/media/tv
+jf_serverurl=1.1.1.1
+version_tag=latest
+expose=
+nvidia_driver=all
+nvidia_visible=all
+nvidia_graphics=all
+extra_path1=/pg/media
+extra_path2=/pg/media
+extra_path3=/pg/media
+extra_path4=/pg/media
+extra_path5=/pg/media
+extra_path6=/pg/media
+extra_path7=/pg/media
+extra_path8=/pg/media
+extra_path9=/pg/media
 }
 
 

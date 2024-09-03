@@ -1,14 +1,11 @@
 #!/bin/bash
 
 default_variables() {
-port_number=4600
-port_two=4599
-appdata_path="/pg/appdata/opera"
-version_tag="latest"
-time_zone="America/New_York"
-operacli_url="https://www.linuxserver.io"
-shm_size="1gb"
-expose=""
+port_number=5055
+time_zone=America/New_York
+appdata_path=/pg/appdata/overseerr
+version_tag=latest
+expose=
 }
 
 deploy_container() {

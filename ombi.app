@@ -2,10 +2,10 @@
 
 default_variables() {
 port_number=3579
-time_zone="America/New_York"
-appdata_path="/pg/appdata/ombi"
-version_tag="latest"
-expose=""
+time_zone=America/New_York
+appdata_path=/pg/appdata/ombi
+version_tag=latest
+expose=
 }
 
 deploy_container() {
