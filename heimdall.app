@@ -1,11 +1,11 @@
 #!/bin/bash
 
 default_variables() {
-app_name="heimdall"
-port_number="8444"
-time_zone="America/New_York"
-appdata_path="/pg/appdata/heimdall"
-version_tag="latest"
+app_name=heimdall
+port_number=8444
+time_zone=America/New_York
+appdata_path=/pg/appdata/heimdall
+version_tag=latest
 expose=""
 }
 
