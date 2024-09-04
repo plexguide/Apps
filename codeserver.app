@@ -9,7 +9,7 @@ appdata_path=/pg/appdata/codeserver
 version_tag=latest
 expose=
 password=                             #optional
-hashed_passowrd=                      #optional
+hashed_password=                      #optional
 sudo_password=                        #optional
 sudo_password_hash=                   #optional
 default_workspace=/config/workspace   #optional
@@ -29,7 +29,7 @@ services:
       - PGID=1000
       - TZ=${time_zone}
       - PASSWORD=${password}
-      - HASHED_PASSOWRD=${hashed_passowrd}
+      - HASHED_PASSOWRD=${hashed_password}
       - SUDO_PASSWORD=${sudo_password}
       - SUDO_PASSWORD_HASH=${sudo_password_hash}
       - PROXY_DOMAIN=${proxy_domain}
