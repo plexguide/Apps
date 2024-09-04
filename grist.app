@@ -14,8 +14,8 @@ expose=
 # Function to deploy the Grist container
 deploy_container() {
 
-    create_docker_compose() {
-        cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
+create_docker_compose() {
+    cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
   ${app_name}:
     image: gristlabs/grist:${version_tag}

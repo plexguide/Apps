@@ -13,8 +13,8 @@ expose=
 # ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
-    create_docker_compose() {
-        cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
+create_docker_compose() {
+    cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
   ${app_name}:
     image: neosmemo/memos:${version_tag}
