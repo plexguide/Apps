@@ -78,7 +78,9 @@ menu1() {
         echo "Current Admin Token: $admin_token"
     fi
 
-    echo -e "Note: Changing the admin token will stop the Docker container and require manual redeployment."
+    echo -e "Note: Changing the admin token will stop the Docker container and require "
+    echo -e "manual redeployment."
+    echo ""
     echo -e "\nPlease enter your new Vaultwarden Admin Token (minimum 12 characters)"
     echo -e "Type [${GREEN}Z${NC}] to exit.\n"
 
