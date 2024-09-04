@@ -87,6 +87,12 @@ EOF
 
     cat << EOF >> /pg/ymals/${app_name}/docker-compose.yml
     restart: unless-stopped
+    networks:
+      - plexguide
+
+networks:
+  plexguide:
+    external: true
 EOF
 }
 
