@@ -51,7 +51,7 @@ EOF
 }
 
 # ================================ MENU GENERATION ================================ #
-# NOTE: Generates Menus for the App. Requires 4 #'s' - See Wiki for Details
+# NOTE: List menu options in order of appears and place a this for naming #### Item Title
 
 
 # ================================ EXTRA FUNCTIONS ================================ #

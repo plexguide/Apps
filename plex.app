@@ -99,10 +99,10 @@ EOF
 }
 
 # ================================ MENU GENERATION ================================ #
-# NOTE: Generates Menus for the App. Requires 4 #'s'
+# NOTE: List menu options in order of appears and place a this for naming #### Item Title
 
-#### Plex Token
-plex_token() {
+menu1() {
+#### Plex Token    
     clear
     
     # Source the configuration file to get the current plex_token value
