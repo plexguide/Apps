@@ -193,6 +193,11 @@ menu2() {
     done
 }
 
+menu3 () {
+    echo "Hello!"
+    read -p "Press [Enter] to acknowledge..."
+}
+
 # ================================ EXTRA FUNCTIONS ================================ #
 # NOTE: Extra Functions for Script Organization
 
