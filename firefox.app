@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ================================ DEFAULT VALUES ================================ #
+
 default_variables() {
 port_number=4700
 port_two=4699
@@ -11,6 +13,7 @@ shm_size=1gb
 expose=
 }
 
+# ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
 create_docker_compose() {

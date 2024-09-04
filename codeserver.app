@@ -1,6 +1,7 @@
 #!/bin/bash
-
 # https://docs.linuxserver.io/images/docker-code-server/#usage
+
+# ================================ DEFAULT VALUES ================================ #
 
 default_variables() {
 port_number=8443
@@ -16,6 +17,7 @@ default_workspace=/config/workspace   #optional
 proxy_domain=code-server.my.domain    #optional
 }
 
+# ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
 create_docker_compose() {

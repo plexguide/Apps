@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ================================ DEFAULT VALUES ================================ #
+
 default_variables() {
 port_number=8191
 time_zone=America/New_York
@@ -9,6 +11,7 @@ expose=
 log=info
 }
 
+# ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
 create_docker_compose() {

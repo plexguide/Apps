@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ================================ DEFAULT VALUES ================================ #
+
 default_variables() {
 appdata_path=/pg/appdata/posterizarr
 kometa_path=/pg/appdata/kometa
@@ -8,6 +10,7 @@ version_tag=latest
 runtime=10:30,19:30
 }
 
+# ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
 create_docker_compose() {

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ================================ DEFAULT VALUES ================================ #
+
 default_variables() {
 appdata_path=/pg/appdata/prowlarr
 port_number=9696
@@ -8,6 +10,7 @@ version_tag=latest
 expose=
 }
 
+# ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
 create_docker_compose() {

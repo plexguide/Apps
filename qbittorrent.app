@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ================================ DEFAULT VALUES ================================ #
+
 default_variables() {
 port_number=8080
 torrenting_port=6881
@@ -10,6 +12,7 @@ version_tag=latest
 expose=
 }
 
+# ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
 create_docker_compose() {

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ================================ DEFAULT VALUES ================================ #
+
 default_variables() {
 port_number=5690
 time_zone=America/New_York
@@ -8,6 +10,7 @@ version_tag=latest
 expose=
 }
 
+# ================================ CONTAINER DEPLOYMENT ================================ #
 deploy_container() {
 
 # Function to create Docker Compose file

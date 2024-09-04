@@ -58,8 +58,9 @@ EOF
 # ================================ MENU GENERATION ================================ #
 # NOTE: Generates Menus for the App. Requires 4 #'s'
 
+
+menu1() {
 #### Admin Token
-admin_token() {
     clear
 
     # Source the configuration file to get the current admin token value
