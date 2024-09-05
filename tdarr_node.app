@@ -69,8 +69,8 @@ EOF
       - ${expose}${port_number}:8261
     logging:
       options:
-        max-size: 10m
-        max-file: 5
+        max-size: "10m"
+        max-file: "5"
     restart: unless-stopped
     networks:
       - plexguide
