@@ -36,9 +36,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.${app_name}.rule=Host(\`${app_name}.${traefik_domain}\`)"
       - "traefik.http.routers.lidarr.entrypoints=websecure"
-      - "traefik.http.routers.lidarr.tls=true"
       - "traefik.http.routers.lidarr.tls.certresolver=mytlschallenge"
-      - "traefik.http.services.${app_name}.loadbalancer.server.port=${port_number}"
+      - "traefik.http.services.${app_name}.loadbalancer.server.port=8686"
     networks:
       - plexguide
 
