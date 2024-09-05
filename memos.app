@@ -28,6 +28,12 @@ services:
     volumes:
       - ${appdata_path}/.memos/:/var/opt/memos
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${app_name}.rule=Host(\`${app_name}.${traefik_domain}\`)"
+      - "traefik.http.routers.lidarr.entrypoints=websecure"
+      - "traefik.http.routers.lidarr.tls.certresolver=mytlschallenge"
+      - "traefik.http.services.${app_name}.loadbalancer.server.port=8686"
     networks:
       - plexguide
 
