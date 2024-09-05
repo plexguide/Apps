@@ -35,7 +35,7 @@ services:
     container_name: ${app_name}
     environment:
       - serverIP=${server_ip}
-      - serverPort=${port_number}
+      - serverPort=${port_two}
       - webUIPort=${expose}${port_number}
       - inContainer=true
       - ffmpegVersion=${ffmpeg_version}
