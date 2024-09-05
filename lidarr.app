@@ -32,6 +32,12 @@ services:
       - ${music_path}:/music
       - ${clientdownload_path}:/downloads
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.${app_name}.rule=Host(\`${app_name}.${traefik_domain}\`)"
+      - "traefik.http.routers.${app_name}.entrypoints=websecure"
+      - "traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge"
+      - "traefik.http.services.${app_name}.loadbalancer.server.port=3001"
     networks:
       - plexguide
 
