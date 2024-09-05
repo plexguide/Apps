@@ -56,8 +56,7 @@ EOF
 }
 
 # ================================ MENU GENERATION ================================ #
-# NOTE: Generates Menus for the App. Requires 4 #'s'
-
+# NOTE: List menu options in order of appears and place a this for naming #### Item Title
 
 menu1() {
 #### Admin Token

@@ -17,6 +17,7 @@ version_tag=latest
 nvidia_driver=all
 nvidia_visible=all
 nvidia_graphics=all
+intel_gpu=/dev/dri/
 }
 
 # Note: Required to Specify the Intel GPU; example: /dev/dri/renderD128 for Tdarr to Use It
