@@ -17,24 +17,24 @@ deploy_container() {
     default_variables  # Initialize default variables
 
     # Determine the env file path based on app type
-    if [[ "$config_type" == "personal" ]]; then
-        env_file="/pg/env/personal/${APP_NAME}.env"
-    else
-        env_file="/pg/env/${APP_NAME}.env"
-    fi
+    #if [[ "$config_type" == "personal" ]]; then
+    #    env_file="/pg/env/personal/${APP_NAME}.env"
+    #else
+    #    env_file="/pg/env/${APP_NAME}.env"
+    #fi
 
     # Source the .env file to override default variables
-    if [[ -f "$env_file" ]]; then
-        set -a  # Automatically export all variables
-        source "$env_file"
-        set +a
-    fi
+    #if [[ -f "$env_file" ]]; then
+    #    set -a  # Automatically export all variables
+    #    source "$env_file"
+    #    set +a
+    #fi
 
     # Ensure TRAEFIK_DOMAIN is set
-    if [[ -z "${TRAEFIK_DOMAIN}" ]]; then
-        source "/pg/config/dns_provider.cfg"
-        TRAEFIK_DOMAIN="${domain_name:-nodomain}"
-    fi
+    #if [[ -z "${TRAEFIK_DOMAIN}" ]]; then
+    #    source "/pg/config/dns_provider.cfg"
+    #    TRAEFIK_DOMAIN="${domain_name:-nodomain}"
+    #fi
 
     create_docker_compose  # Generate the Docker Compose file
 }
@@ -76,8 +76,3 @@ EOF
 # NOTE: List menu options in order of appearance and place this for naming #### Item Title
 
 # ================================ EXTRA FUNCTIONS ================================ #
-
-# Call the deploy_container function if this script is executed directly
-if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    deploy_container
-fi

@@ -3,21 +3,50 @@
 # ================================ DEFAULT VALUES ================================ #
 
 default_variables() {
-PORT_NUMBER=5230
-TIME_ZONE=America/New_York
-APPDATA_PATH=/pg/appdata/memos
-VERSION_TAG=stable
-EXPOSE=
+    APP_NAME=memos
+    PORT_NUMBER=5230
+    TIME_ZONE=America/New_York
+    APPDATA_PATH=/pg/appdata/memos
+    VERSION_TAG=stable
+    EXPOSE=
 }
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
+
 deploy_container() {
+    default_variables  # Initialize default variables
+
+    # Determine the env file path based on app type
+    if [[ "$config_type" == "personal" ]]; then
+        env_file="/pg/env/personal/${APP_NAME}.env"
+    else
+        env_file="/pg/env/${APP_NAME}.env"
+    fi
+
+    # Source the .env file to override default variables
+    if [[ -f "$env_file" ]]; then
+        set -a  # Automatically export all variables
+        source "$env_file"
+        set +a
+    fi
+
+    # Ensure TRAEFIK_DOMAIN is set
+    if [[ -z "${TRAEFIK_DOMAIN}" ]]; then
+        source "/pg/config/dns_provider.cfg"
+        TRAEFIK_DOMAIN="${domain_name:-nodomain}"
+    fi
+
+    create_docker_compose  # Generate the Docker Compose file
+}
 
 create_docker_compose() {
-    cat << EOF > "/pg/ymals/${APP_NAME}/docker-compose.yml"
+    compose_file_path="/pg/ymals/${APP_NAME}/docker-compose.yml"
+    mkdir -p "/pg/ymals/${APP_NAME}"
+
+    cat << EOF > "$compose_file_path"
 services:
   ${APP_NAME}:
-    image: neosmemo/memos:${version_tag}
+    image: neosmemo/memos:${VERSION_TAG}
     container_name: ${APP_NAME}
     environment:
       - PUID=1000
@@ -43,11 +72,12 @@ networks:
 EOF
 }
 
-}
-
 # ================================ MENU GENERATION ================================ #
-# NOTE: List menu options in order of appears and place a this for naming #### Item Title
-
+# NOTE: List menu options in order of appearance and place this for naming #### Item Title
 
 # ================================ EXTRA FUNCTIONS ================================ #
-# NOTE: Extra Functions for Script Organization
+
+# Call the deploy_container function if this script is executed directly
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    deploy_container
+fi
