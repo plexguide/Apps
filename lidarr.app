@@ -3,51 +3,55 @@
 # ================================ DEFAULT VALUES ================================== #
 
 default_variables() {
-port_number=8686
-time_zone=America/New_York
-appdata_path=/pg/appdata/lidarr
-music_path=/pg/media/music
-clientdownload_path=/pg/downloads
-version_tag=latest
-expose=
+    app_name="lidarr"
+    port_number=8686
+    time_zone="America/New_York"
+    appdata_path="/pg/appdata/lidarr"
+    music_path="/pg/media/music"
+    clientdownload_path="/pg/downloads"
+    version_tag="latest"
+    expose=""
 }
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
+
 deploy_container() {
+    default_variables  # Initialize default variables
+
+    create_docker_compose  # Generate the Docker Compose file
+}
 
 create_docker_compose() {
-    cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
+    compose_file_path="/pg/ymals/${app_name}/docker-compose.yml"
+    mkdir -p "/pg/ymals/${app_name}"
+
+    cat << 'EOF' > "$compose_file_path"
 services:
-  lidarr:
-    image: lscr.io/linuxserver/lidarr:${version_tag}
-    container_name: lidarr
+  ${APP_NAME}:
+    image: lscr.io/linuxserver/lidarr:${VERSION_TAG}
+    container_name: ${APP_NAME}
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=${time_zone}
-    ports:
-      - "${expose}${port_number}:8686"
+      - TZ=${TIME_ZONE}
     volumes:
-      - ${appdata_path}:/config
-      - ${music_path}:/music
-      - ${clientdownload_path}:/downloads
+      - ${APPDATA_PATH}:/config
+      - ${MUSIC_PATH}:/music
+      - ${CLIENTDOWNLOAD_PATH}:/downloads
     restart: unless-stopped
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.${app_name}.rule=Host("${app_name}.${traefik_domain}")'
-      - 'traefik.http.routers.${app_name}.entrypoints=websecure'
-      - 'traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge'
-      - 'traefik.http.services.${app_name}.loadbalancer.server.port=${port_number}'
+      - 'traefik.http.routers.${APP_NAME}.rule=Host("${APP_NAME}.${TRAEFIK_DOMAIN}")'
+      - 'traefik.http.routers.${APP_NAME}.entrypoints=websecure'
+      - 'traefik.http.routers.${APP_NAME}.tls.certresolver=mytlschallenge'
+      - 'traefik.http.services.${APP_NAME}.loadbalancer.server.port=${PORT_NUMBER}'
     networks:
       - plexguide
 
 networks:
   plexguide:
     external: true
-
 EOF
-}
-
 }
 
 # ================================ MENU GENERATION ================================ #
