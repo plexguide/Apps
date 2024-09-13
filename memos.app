@@ -3,12 +3,12 @@
 # ================================ DEFAULT VALUES ================================ #
 
 default_variables() {
-    app_name="memos"
+    app_name=memos
     port_number=5230
-    time_zone="America/New_York"
-    appdata_path="/pg/appdata/memos"
-    version_tag="stable"
-    expose=""
+    time_zone=America/New_York
+    appdata_path=/pg/appdata/memos
+    version_tag=stable
+    expose=
 }
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
