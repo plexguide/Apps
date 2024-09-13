@@ -3,66 +3,37 @@
 # ================================ DEFAULT VALUES ================================ #
 
 default_variables() {
-    APP_NAME=memos
-    PORT_NUMBER=5230
-    TIME_ZONE=America/New_York
-    APPDATA_PATH=/pg/appdata/memos
-    VERSION_TAG=stable
-    EXPOSE=
+port_number=5230
+time_zone=America/New_York
+appdata_path=/pg/appdata/memos
+version_tag=stable
+expose=
 }
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
-
 deploy_container() {
-    default_variables  # Initialize default variables
-
-    # Determine the env file path based on app type
-    #if [[ "$config_type" == "personal" ]]; then
-    #    env_file="/pg/env/personal/${APP_NAME}.env"
-    #else
-    #    env_file="/pg/env/${APP_NAME}.env"
-    #fi
-
-    # Source the .env file to override default variables
-    #if [[ -f "$env_file" ]]; then
-    #    set -a  # Automatically export all variables
-    #    source "$env_file"
-    #    set +a
-    #fi
-
-    # Ensure TRAEFIK_DOMAIN is set
-    #if [[ -z "${TRAEFIK_DOMAIN}" ]]; then
-    #    source "/pg/config/dns_provider.cfg"
-    #    TRAEFIK_DOMAIN="${domain_name:-nodomain}"
-    #fi
-
-    create_docker_compose  # Generate the Docker Compose file
-}
 
 create_docker_compose() {
-    compose_file_path="/pg/ymals/${APP_NAME}/docker-compose.yml"
-    mkdir -p "/pg/ymals/${APP_NAME}"
-
-    cat << EOF > "$compose_file_path"
+    cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
-  ${APP_NAME}:
-    image: neosmemo/memos:${VERSION_TAG}
-    container_name: ${APP_NAME}
+  ${app_name}:
+    image: neosmemo/memos:${version_tag}
+    container_name: ${app_name}
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=${TIME_ZONE}
+      - TZ=${time_zone}
     ports:
-      - "${EXPOSE}${PORT_NUMBER}:5230"
+      - "${expose}${port_number}:5230"
     volumes:
-      - ${APPDATA_PATH}/.memos/:/var/opt/memos
+      - ${appdata_path}/.memos/:/var/opt/memos
     restart: unless-stopped
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.${APP_NAME}.rule=Host("${APP_NAME}.${TRAEFIK_DOMAIN}")'
-      - 'traefik.http.routers.${APP_NAME}.entrypoints=websecure'
-      - 'traefik.http.routers.${APP_NAME}.tls.certresolver=mytlschallenge'
-      - 'traefik.http.services.${APP_NAME}.loadbalancer.server.port=${PORT_NUMBER}'
+      - 'traefik.http.routers.${app_name}.rule=Host("${app_name}.${traefik_domain}")'
+      - 'traefik.http.routers.${app_name}.entrypoints=websecure'
+      - 'traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge'
+      - 'traefik.http.services.${app_name}.loadbalancer.server.port=${port_number}'
     networks:
       - plexguide
 
@@ -72,7 +43,11 @@ networks:
 EOF
 }
 
+}
+
 # ================================ MENU GENERATION ================================ #
-# NOTE: List menu options in order of appearance and place this for naming #### Item Title
+# NOTE: List menu options in order of appears and place a this for naming #### Item Title
+
 
 # ================================ EXTRA FUNCTIONS ================================ #
+# NOTE: Extra Functions for Script Organization
