@@ -18,9 +18,9 @@ deploy_container() {
 create_docker_compose() {
     cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
-  ${app_name}:
+  lidarr:
     image: lscr.io/linuxserver/lidarr:${version_tag}
-    container_name: ${app_name}
+    container_name: lidarr
     environment:
       - PUID=1000
       - PGID=1000
@@ -34,9 +34,9 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${app_name}.rule=Host(\`${app_name}.${traefik_domain}\`)"
-      - "traefik.http.routers.lidarr.entrypoints=websecure"
-      - "traefik.http.routers.lidarr.tls.certresolver=mytlschallenge"
+      - "traefik.http.routers.${app_name}.rule=Host(`${app_name}.${traefik_domain}`)"
+      - "traefik.http.routers.${app_name}.entrypoints=websecure"
+      - "traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge"
       - "traefik.http.services.${app_name}.loadbalancer.server.port=8686"
     networks:
       - plexguide
@@ -44,6 +44,7 @@ services:
 networks:
   plexguide:
     external: true
+
 EOF
 }
 
