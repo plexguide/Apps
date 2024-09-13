@@ -19,7 +19,7 @@ create_docker_compose() {
     cat << EOF > /pg/ymals/${app_name}/docker-compose.yml
 services:
   ${app_name}:
-    image: lscr.io/linuxserver/${app_name}:latest
+    image: lscr.io/linuxserver/lidarr:latest
     container_name: ${app_name}
     environment:
       - PUID=1000                     # Adjust as needed
