@@ -34,7 +34,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.${app_name}.rule=Host(`${app_name}.${traefik_domain}`)"
+      - "traefik.http.routers.lidarr.rule=Host('lidarr.the9705.org')"
       - "traefik.http.routers.${app_name}.entrypoints=websecure"
       - "traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge"
       - "traefik.http.services.${app_name}.loadbalancer.server.port=8686"
