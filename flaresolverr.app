@@ -30,6 +30,12 @@ services:
     ports:
       - "${expose}${port_number}:8191"
     restart: unless-stopped
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.${app_name}.rule=Host("${app_name}.${traefik_domain}")'
+      - 'traefik.http.routers.${app_name}.entrypoints=websecure'
+      - 'traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge'
+      - 'traefik.http.services.${app_name}.loadbalancer.server.port=${port_number}'
     networks:
       - plexguide
     
