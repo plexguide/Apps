@@ -3,12 +3,12 @@
 # ================================ DEFAULT VALUES ================================ #
 
 default_variables() {
-    app_name=memos
-    port_number=5230
-    time_zone=America/New_York
-    appdata_path=/pg/appdata/memos
-    version_tag=stable
-    expose=
+    APP_NAME="memos"
+    PORT_NUMBER=5230
+    TIME_ZONE="America/New_York"
+    APPDATA_PATH="/pg/appdata/memos"
+    VERSION_TAG="stable"
+    EXPOSE=""
 }
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
@@ -16,51 +16,53 @@ default_variables() {
 deploy_container() {
     default_variables  # Initialize default variables
 
-    # Determine the config path based on app type
+    # Determine the env file path based on app type
     if [[ "$config_type" == "personal" ]]; then
-        config_file="/pg/personal_configs/${app_name}.cfg"
+        env_file="/pg/env/personal/${APP_NAME}.env"
     else
-        config_file="/pg/config/${app_name}.cfg"
+        env_file="/pg/env/${APP_NAME}.env"
     fi
 
-    # Source the config file to override default variables
-    if [[ -f "$config_file" ]]; then
-        source "$config_file"
+    # Source the .env file to override default variables
+    if [[ -f "$env_file" ]]; then
+        set -a  # Automatically export all variables
+        source "$env_file"
+        set +a
     fi
 
-    # Ensure traefik_domain is set
-    if [[ -z "${traefik_domain}" ]]; then
+    # Ensure TRAEFIK_DOMAIN is set
+    if [[ -z "${TRAEFIK_DOMAIN}" ]]; then
         source "/pg/config/dns_provider.cfg"
-        traefik_domain="${domain_name:-nodomain}"
+        TRAEFIK_DOMAIN="${domain_name:-nodomain}"
     fi
 
     create_docker_compose  # Generate the Docker Compose file
 }
 
 create_docker_compose() {
-    compose_file_path="/pg/ymals/${app_name}/docker-compose.yml"
-    mkdir -p "/pg/ymals/${app_name}"
+    compose_file_path="/pg/ymals/${APP_NAME}/docker-compose.yml"
+    mkdir -p "/pg/ymals/${APP_NAME}"
 
     cat << EOF > "$compose_file_path"
 services:
-  ${app_name}:
-    image: neosmemo/memos:${version_tag}
-    container_name: ${app_name}
+  ${APP_NAME}:
+    image: neosmemo/memos:${VERSION_TAG}
+    container_name: ${APP_NAME}
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=${time_zone}
+      - TZ=${TIME_ZONE}
     ports:
-      - "${expose}${port_number}:5230"
+      - "${EXPOSE}${PORT_NUMBER}:5230"
     volumes:
-      - ${appdata_path}/.memos/:/var/opt/memos
+      - ${APPDATA_PATH}/.memos/:/var/opt/memos
     restart: unless-stopped
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.${app_name}.rule=Host("${app_name}.${traefik_domain}")'
-      - 'traefik.http.routers.${app_name}.entrypoints=websecure'
-      - 'traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge'
-      - 'traefik.http.services.${app_name}.loadbalancer.server.port=${port_number}'
+      - 'traefik.http.routers.${APP_NAME}.rule=Host("${APP_NAME}.${TRAEFIK_DOMAIN}")'
+      - 'traefik.http.routers.${APP_NAME}.entrypoints=websecure'
+      - 'traefik.http.routers.${APP_NAME}.tls.certresolver=mytlschallenge'
+      - 'traefik.http.services.${APP_NAME}.loadbalancer.server.port=${PORT_NUMBER}'
     networks:
       - plexguide
 
