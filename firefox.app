@@ -3,14 +3,14 @@
 # ================================ DEFAULT VALUES ================================ #
 
 default_variables() {
-    port_number=4700
-    port_two=4699
-    appdata_path=/pg/appdata/firefox
-    version_tag=latest
-    time_zone=America/New_York
-    firefoxcli_url=https://www.linuxserver.io
-    shm_size=1gb
-    expose=
+port_number=4700
+port_two=4699
+appdata_path=/pg/appdata/firefox
+version_tag=latest
+time_zone=America/New_York
+firefoxcli_url=https://www.linuxserver.io
+shm_size=1gb
+expose=
 }
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
@@ -36,13 +36,18 @@ services:
       - ${appdata_path}:/config
     shm_size: ${shm_size}
     restart: unless-stopped
-    network_mode: bridge  # Explicitly setting the network mode to bridge
     labels:
       - 'traefik.enable=true'
       - 'traefik.http.routers.${app_name}.rule=Host("${app_name}.${traefik_domain}")'
       - 'traefik.http.routers.${app_name}.entrypoints=websecure'
       - 'traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge'
       - 'traefik.http.services.${app_name}.loadbalancer.server.port=${port_number}'
+    networks:
+      - plexguide
+    
+networks:
+  plexguide:
+    external: true
 EOF
 }
 
