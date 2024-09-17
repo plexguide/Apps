@@ -44,6 +44,7 @@ services:
   ${app_name}:
     image: lscr.io/linuxserver/plex:${version_tag}
     container_name: ${app_name}
+    network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
@@ -92,12 +93,6 @@ EOF
       - 'traefik.http.routers.${app_name}.entrypoints=websecure'
       - 'traefik.http.routers.${app_name}.tls.certresolver=mytlschallenge'
       - 'traefik.http.services.${app_name}.loadbalancer.server.port=${port_number}'
-    networks:
-      - plexguide
-
-networks:
-  plexguide:
-    external: true
 EOF
 }
 
