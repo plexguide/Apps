@@ -44,7 +44,6 @@ services:
   ${app_name}:
     image: lscr.io/linuxserver/plex:${version_tag}
     container_name: ${app_name}
-    network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
