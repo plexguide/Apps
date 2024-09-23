@@ -43,7 +43,7 @@ services:
       - TZ=${time_zone}
       - PUID=1000
       - PGID=1000
-	  - internalNode=${internal_node}
+      - internalNode=${internal_node}
 EOF
 
     # Check if NVIDIA devices exist
