@@ -14,7 +14,7 @@ default_variables() {
 media_path=/pg/media
 port_number=32400
 time_zone=America/New_York
-appdata_path=/pg/appdata/plex
+appdata_path=/pg/appdata/plexremote
 plex_token=null
 version_tag=latest
 expose=
