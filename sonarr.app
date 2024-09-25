@@ -6,7 +6,7 @@ default_variables() {
 port_number=8989
 time_zone=America/New_York
 appdata_path=/pg/appdata/sonarr
-movies_path=/pg/media/tv
+tv_path=/pg/media/tv
 clientdownload_path=/pg/downloads
 version_tag=latest
 expose=
@@ -27,7 +27,7 @@ services:
       - TZ=${time_zone}
     volumes:
       - ${appdata_path}:/config
-      - ${movies_path}:/movies
+      - ${tv_path}:/tv
       - ${clientdownload_path}:/downloads
     ports:
       - "${expose}${port_number}:8989"
