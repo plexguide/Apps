@@ -4,10 +4,10 @@
 
 default_variables() {
 port_number=5055
-time_zone="America/New_York"
-appdata_path="/pg/appdata/overseerr"
-version_tag="latest"
-expose=""
+time_zone=America/New_York
+appdata_path=/pg/appdata/overseerr
+version_tag=latest
+expose=
 }
 
 # ================================ CONTAINER DEPLOYMENT ================================ #
